@@ -1,4 +1,4 @@
-// Custom logging middleware
+
 export function logEvent(type, message, data = {}) {
   const logs = JSON.parse(localStorage.getItem("logs")) || [];
   const entry = {

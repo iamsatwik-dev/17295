@@ -15,14 +15,14 @@ function ShortenerPage() {
     setError("");
     const urls = getUrls();
 
-    // Validate URL
+    
     if (!isValidUrl(url)) {
       setError("Invalid URL format.");
       logEvent("error", "Invalid URL", { url });
       return;
     }
 
-    // Handle shortcode
+    
     let code = shortcode || Math.random().toString(36).substring(2, 8);
     if (!isValidShortcode(code)) {
       setError("Shortcode must be 3–10 alphanumeric characters.");
@@ -33,14 +33,14 @@ function ShortenerPage() {
       return;
     }
 
-    // Validity
+    
     const expiry = validity ? parseInt(validity) : 30;
     if (isNaN(expiry) || expiry <= 0) {
       setError("Validity must be a positive number (minutes).");
       return;
     }
 
-    // Save
+    
     saveShortUrl(code, url, expiry);
     setShortUrl(`${window.location.origin}/?id=${code}`);
     logEvent("info", "URL shortened", { url, shortcode: code, expiry });

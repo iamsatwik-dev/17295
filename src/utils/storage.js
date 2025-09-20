@@ -23,7 +23,7 @@ export function recordClick(shortcode) {
     urls[shortcode].clicks.push({
       timestamp: new Date().toISOString(),
       referrer: document.referrer || "Direct",
-      location: "Unknown", // Fake for client-only app
+      location: "Unknown", 
     });
     localStorage.setItem("urls", JSON.stringify(urls));
   }
